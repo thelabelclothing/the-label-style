@@ -46,7 +46,7 @@ export function Header() {
     e.preventDefault();
     setSearchOpen(false);
     setMenuOpen(false);
-    navigate({ to: "/shop", search: { q: query.trim() || undefined } });
+    navigate({ to: "/shop", search: query.trim() ? { q: query.trim() } : {} });
   };
 
   return (
@@ -96,7 +96,7 @@ export function Header() {
               <Link
                 key={item.label}
                 to={item.to}
-                search={"search" in item ? (item.search as never) : undefined}
+                {...("search" in item ? { search: item.search as never } : {})}
                 className={cn(
                   "label-xs link-underline py-1",
                   item.label === "Sale" && "text-sale",
@@ -200,7 +200,7 @@ export function Header() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    search={"search" in item ? (item.search as never) : undefined}
+                    {...("search" in item ? { search: item.search as never } : {})}
                     onClick={() => setMenuOpen(false)}
                     className="display block text-3xl"
                   >

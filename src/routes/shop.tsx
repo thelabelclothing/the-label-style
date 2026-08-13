@@ -8,10 +8,10 @@ const DESCRIPTION =
   "Shop contemporary essentials for women and men. Filter by category, size, colour and price across the full Label Clothing collection.";
 
 interface ShopSearch {
-  q?: string;
-  category?: Category | "all";
-  sort?: SortKey;
-  sale?: boolean;
+  q?: string | undefined;
+  category?: Category | "all" | undefined;
+  sort?: SortKey | undefined;
+  sale?: boolean | undefined;
 }
 
 export const Route = createFileRoute("/shop")({
