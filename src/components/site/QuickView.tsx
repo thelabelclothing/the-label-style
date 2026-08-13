@@ -17,8 +17,8 @@ export function QuickView({
   onOpenChange: (v: boolean) => void;
 }) {
   const { addToBag } = useStore();
-  const [size, setSize] = useState(product.sizes.length === 1 ? product.sizes[0] : "");
-  const [color, setColor] = useState(product.colors[0].name);
+  const [size, setSize] = useState(product.sizes.length === 1 ? (product.sizes[0] ?? "") : "");
+  const [color, setColor] = useState(product.colors[0]?.name ?? "");
 
   const add = () => {
     if (!size) {
